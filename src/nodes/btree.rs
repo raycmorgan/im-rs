@@ -812,7 +812,7 @@ impl<'a, A: 'a + BTreeValue> Iter<'a, A> {
 
     fn get(path: &[(&'a Node<A>, usize)]) -> Option<&'a A> {
         match path.last() {
-            Some((node, index)) => Some(&node.keys[*index]),
+            Some((node, index)) => Some(&node.keys[(*index)-1]),
             None => None,
         }
     }
